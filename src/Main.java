@@ -8,6 +8,7 @@ public class Main {
         Conta conta = new Conta();
         System.out.println(conta.getTotal(2D, 2D));
 
+
         /* conta.getUsuarios().forEach(u -> {
             System.out.println(count + u.getIdade());
         });
@@ -21,10 +22,15 @@ public class Main {
                 .mapToInt(u -> u.getIdade())
                 .count();
 
+        conta.getUsuarios().stream()
+                .mapToInt(Usuario::getIdade)
+                .reduce((u1, u2) -> u1 + u2)
+                .ifPresent(System.out::println);
+
         /* Map<Integer, String> myMap = Map.of(1, "a", 2, "b");
         myMap.put(3, "c"); */
         IntStream numbers = IntStream.of(10, 20, 25, 30, 40, 50);
-        numbers.dropWhile(n -> n < 20).forEach(System.out::println);
+        //numbers.dropWhile(n -> n < 20).forEach(System.out::println);
         //numbers.takeWhile(n -> n % 2 == 0).forEach(System.out::println);
     }
 }
